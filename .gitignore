@@ -1,4 +1,5 @@
 .DS_Store
 .idea
-venv
-USBoN/venv
+__pycache__
+.pycache
+
