@@ -1,0 +1,22 @@
+doctype html
+
+html
+    head
+        h1 Flaskified USBoN
+
+.main
+    br
+    h2 This server's address is:
+    h3 !{server_addr}
+    br
+    h2 Your address is:
+    h3 !{your_addr}
+
+br
+
+h1 Downloads:
+html
+    <form action="/clientusbon" method="post" name=name enctype="multipart/form-data">
+    <input type="submit" value="Click here to download client USBoN script" />
+    </form>
+

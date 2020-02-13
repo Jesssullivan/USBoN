@@ -6,8 +6,6 @@ apt-get install ffmpeg libmariadb3 libpq5 libmicrohttpd12 -y
 apt-get install linux-tools-generic -y
 pip install requests
 pip3 install requests
-apt-get install usbip -y
-modprobe usbip_host
 
 # motioneye setup:
 pip install motioneye
