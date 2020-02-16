@@ -1,14 +1,14 @@
 [Unit]
-Description=usbip startup
+Description=usbipd startup
 After=network.target
 
 [Service]
 Type=forking
-ExecStart=/usr/bin/python3 Py3_client.py
+ExecStart=/bin/bash python3 ~/thing.py
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
-User=pi
+User=root
 
 [Install]
 WantedBy=multi-user.target

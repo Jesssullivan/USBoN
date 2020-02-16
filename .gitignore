@@ -2,4 +2,5 @@
 .idea
 __pycache__
 .pycache
-
+downloads/client-sh.zip
+wpa_supplicant.conf

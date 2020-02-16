@@ -1,0 +1,35 @@
+
+include header.jade
+
+h3 This server's address is:
+h4 !{server_addr}
+
+br
+
+h3 Your address is:
+h4 !{your_addr}
+
+br
+
+body
+    form(action="octo" method='post')
+        input(type='submit', value="...Visit Octoprint web controls...")
+
+p
+
+body
+    form(action="retry" method='post')
+        input(type='submit', value="...Refresh Octoprint serial device list...")
+
+br
+
+body
+    form(action='download_sh', method='post')
+        input(type='submit', value="Download shell scripts from server")
+
+
+body
+    h5 Available things:
+    p !{available}
+
+include footer.jade

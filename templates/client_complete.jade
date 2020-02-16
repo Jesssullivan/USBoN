@@ -1,0 +1,13 @@
+include header.jade
+
+br
+
+h2 Configuration complete :)
+
+form#json(name="json", method="POST", action="/attributes", enctype="multipart/form-data")
+    button(type="submit") Click here to see thing attributes...
+
+br
+
+form#back(name="back", method="POST", action="/", enctype="multipart/form-data")
+    button(type="submit") Click here to go back to config page
