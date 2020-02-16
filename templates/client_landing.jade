@@ -1,0 +1,38 @@
+doctype html
+
+include header
+
+h3 Welcome to the setup page of:
+    h3 !{my_addr}
+
+
+.main-content
+
+form#config(name="config", method="POST", action="/conf", enctype="multipart/form-data")
+
+    p Please give " !{my_addr} "a name:
+    input#name(type="text", value='', placeholder='thing name...', name="name")
+
+    p Enter JobServer's Address:
+    input#jobserver(type="text", value='', placeholder='http://127.0.0.1:5000', name="jobserver")
+
+    br
+
+    h3 Device:
+    p
+        p ...If not building for arm, check here for x86:
+        input#amd(type="checkbox", value="amd", name="amd")
+
+    p Enable USB over Network control?
+    input#usbon(type="checkbox", value="usbon", name="usbon")
+
+    p Enable Video Streaming?
+    input#video(type="checkbox", value="video", name="video")
+    p
+    button(type="submit") Submit!
+
+share
+
+br
+
+include footer.jade
