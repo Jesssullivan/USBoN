@@ -1,13 +1,38 @@
-from flask import Flask, render_template, send_from_directory, request, redirect, url_for
+"""
+A WIP @ the D&M Makerspace
+written by Jess @ github/jesssullivan
+"""
+from flask import Flask, render_template, send_from_directory, request, jsonify
 import requests
-from requests import get
 import os
 import subprocess
-import threading
-from requests import get, post
+from requests import get
 import time
 import zipfile
-import json
+
+# flask ports:
+thing_port = 4999
+server_port = 5000
+
+# local address:
+my_addr = get('https://api.ipify.org').text
+
+# run as dry run?
+dry = True
+
+# verbose logging?
+verbose = True
+
+# usb port:
+usb_port = '1-1.2'
+
+# define Flask app:
+app = Flask(__name__, template_folder='templates')
+
+# modification for pug/jade, Jinja2 is more common
+app.jinja_env.add_extension('pyjade.ext.jinja.PyJadeExtension')
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
 
 # paths:
 rootpath = os.path.abspath(os.curdir)
@@ -17,8 +42,12 @@ rel_templates = os.path.relpath('templates')
 templates = os.path.relpath('templates')
 downloads = os.path.relpath('downloads')
 
-# usb port:
-usb_port = '1-1.2'
+
+def v(words):
+    if verbose:
+        time.sleep(.15)
+        print(str(words))
+        time.sleep(.15)
 
 
 def shell(cmd):
