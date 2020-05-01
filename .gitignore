@@ -4,3 +4,5 @@ __pycache__
 .pycache
 downloads/client-sh.zip
 wpa_supplicant.conf
+conf
+*.zip

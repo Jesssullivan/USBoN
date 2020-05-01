@@ -118,6 +118,6 @@ def serve_attributes():
 
 if __name__ == '__main__':
     if not os.path.isfile('.usbon.confirm'):
-        app.run(port=thing_port)
+        app.run(port=thing_port, host='0.0.0.0')
     else:
         start_set_usb()
