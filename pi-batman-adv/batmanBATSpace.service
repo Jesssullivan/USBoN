@@ -1,0 +1,14 @@
+# example setup for systemctl
+# a WIP for the D&M Makerspace @ github/jesssullivan
+
+[Unit]
+Description=BATMAN systemd (WIP)
+
+[Service]
+Type=simple
+User=Pi
+####  ExecStart= ...  ####
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
