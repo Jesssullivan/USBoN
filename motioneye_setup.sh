@@ -28,8 +28,11 @@ ADDR=https://github.com/ccrisan/motioneyeos/releases/download/20190911/motioneye
 # the "don't remove image" arg:
 KEEP="keep"
 
-# image filename:
-IMG="${ADDR##*/}"
+# .xz filename:
+XZIMG="${ADDR##*/}"
+
+# .img filename:
+IMG=$(echo $XZIMG | sed -e 's/\(.xz\)*$//g')
 
 
 # check wget- OSX does not have it installed by default:
@@ -65,6 +68,7 @@ eject /dev/$1
 
 # remove zipped image? 
 if ! [ "$1" = $KEEP ] || [ "$2" = $KEEP ]; then
+  rm $XZIMG
   rm $IMG
 fi
 
@@ -76,5 +80,6 @@ echo -e "\nreinsert the card if you'd like to add a wpa_supplicant.conf to the /
 # literal (escaped $ for echo):
 # sudo nmap -sP 10.206.1.1/24 | awk '/^Nmap/{ip=$NF}/B8:27:EB/{print ip}'
 
-echo -e "sudo nmap -sP 10.206.1.1/24 | awk '/^Nmap/{"'ip=$NF'"}/B8:27:EB/{print ip}  \n"
+echo -e "sudo nmap -sP 10.206.1.1/24 | awk '/^Nmap/{"'ip=$NF'"}/B8:27:EB/{print ip}' \n"
 
+	
