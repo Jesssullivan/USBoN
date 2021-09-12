@@ -54,7 +54,7 @@ command -v unxz >/dev/null || {
 
 # expand image:
 echo "expanding image...."
-unxz -T 0 -c $IMG > ${IMG%???}
+unxz -T 0 -c $XZIMG > ${IMG%???}
 DISK_IMG=${IMG%???}
 
 #install:
